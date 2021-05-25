@@ -1,0 +1,145 @@
+﻿<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8" />
+        <!--
+            Customize the content security policy in the meta tag below as needed. Add 'unsafe-inline' to default-src to enable inline JavaScript.
+            For details, see http://go.microsoft.com/fwlink/?LinkID=617521        -->
+        <!-- Meta tag -->
+        <meta http-equiv="Content-Security-Policy" content="default-src * 'unsafe-inline' 'unsafe-eval' http://spacestationfinder.com;  style-src 'self' 'unsafe-inline'; script-src 'self' https://maps.googleapis.com https://maps.google.com http://spacestationfinder.com 'unsafe-eval' 'unsafe-inline'; media-src *">
+
+        <title>Space Station Finder</title>
+
+        <!-- SpaceStationFinder references -->
+        <!--<link href="css/index.css" rel="stylesheet" />
+        <link rel="stylesheet" href="css/default.css" />
+        <meta name="viewport" content="user-scalable=no, width=device-width, , minimum-scale=1.0, maximum-scale=1.0" />-->
+    </head>
+    <body style="margin:0px;padding:0px;overflow:hidden">
+        <script>
+            var eventMethod = window.addEventListener ? "addEventListener" : "attachEvent";
+            var eventer = window[eventMethod];
+            var messageEvent = eventMethod == "attachEvent" ? "onmessage" : "message";
+            // Listen to message from child window
+            eventer(messageEvent, function (e) {
+                if (e.origin == "https://spacestationfinder.com" || e.origin == "https://www.spacestationfinder.com" || e.origin == "https://spacestationfinder.com" || e.origin == "https://www.spacestationfinder.com") {  } else { return; }
+                if (messageEvent !== "message") {
+                    return false
+                }
+                //alert(e.data.toString().split(','))
+                var dateArray = !!e.data ? e.data.toString().split(',') : [];
+                var dateTimeAzimuthArray = dateArray
+                var year = dateTimeAzimuthArray[0];
+                var month = dateTimeAzimuthArray[1];
+                var day = dateTimeAzimuthArray[2];
+                var hour = dateTimeAzimuthArray[3];
+                var minute = dateTimeAzimuthArray[4];
+                var azimuth = dateTimeAzimuthArray[5];
+
+                //alert("year=" + year + " month=" + month + " day="+day + "minute="+minute + "azimuth=" + azimuth);
+                var viewDate = new Date(year, month, day, hour, minute, 0);
+                //alert("viewDate=" + viewDate);
+                var alertDate = new Date(viewDate -(60000*5))
+                //testing - hardcoded alert
+                //alertDate = new Date(2019, 2, 15, 17, 54, 0)
+                //alert(alertDate + "=alertdate");
+                //alert("now="+ new Date())
+                try {
+                    cordova.plugins.notification.local.schedule({
+                        id: 1,
+                        title: "Space Station in 5 mins: " + (parseInt(hour) > 12 ? parseInt(hour) - 12 : parseInt(hour)) + ":" + minute + " facing " + azimuth,
+                        text: "Initally appears facing: " + azimuth,
+                        at: alertDate,
+                        trigger: { at: alertDate }
+                    });
+                } catch (ex) {
+
+                }
+
+            }, false);
+        </script>
+        <iframe id="childFrame" src="indexChild.html" frameborder="0" style="overflow:hidden;height:100vh;width:100vw" height="100%" width="100%"></iframe>
+        <!--<div id="outerContainer" style="height: 100%;">
+            <div id="pageGrid">
+                <div id="redWhiteMapBorder">
+                </div>
+                <div class="centeredDivContainer">
+                    <div id="directionBar">
+                        <div id="leftDirection" class="directionSymbol">
+                        </div>
+                        <div id="directionBarStartDate" class="directionSymbol">
+                        </div>
+                        <div id="direction03" class="directionSymbol">
+                        </div>
+                        <div id="direction04" class="directionSymbol">
+                        </div>
+                        <div id="direction06" class="directionSymbol">
+                        </div>
+                        <div id="direction07" class="directionSymbol">
+                        </div>
+                        <div id="direction08" class="directionSymbol">
+                        </div>
+                        <div id="rightDirection" class="directionSymbol">
+                        </div>
+                    </div>
+                </div>
+                <div id="friendlyMessage" class="message" style="text-align: center; z-index: 101; background-color: #FF0; color: #000; top: 110px; font-size: large; font-weight: bold;">
+                </div>
+                <div id="enterLocation">
+                    <div id="spaceStationFinderLogo" title="Space Station Finder (ISS)">
+                    </div>
+                    <div id="uhaapi">
+                        <div id="uhaapiText">
+                            <a href="https://www.facebook.com/SpaceStationFinderCommunity" style="color: #FFFF00; margin-bottom: 10px; font-size: 14px; font-weight: bold" target="_blank">Community/Suggest a Feature</a><br>
+                        </div>
+                        <div id="000webhost" style="margin-top: 10px; color: #FFFF00; font-size: 14px;">
+                        </div>
+                    </div>
+
+                    <form onsubmit="return false">
+                        <div id="lblLocationNotSet" class="message">
+                            Where on earth do you want to view the Space Station (ISS) from?
+                        </div>
+                        <div id="lblZip">
+                            Nearest City
+                        </div>
+                        <input id="txtAddress" type="text" />
+                        <input id="lat" type="hidden" />
+                        <input id="lng" type="hidden" />
+                        <input type="submit" id="btnGetLatLon" class="button green" value="SHOW VIEW" accesskey="s" /><br />
+                        <button id="btnUsePhoneLatLon" class="button">
+                            JUST USE MY CURRENT LOCATION
+                        </button>
+
+                        <div id="specialMessage">
+                            <span id="lblNote" style="color: #FFFF00;"></span><span id="lblSpecialMessage"></span>
+                        </div>
+                        <div id="storedLocations">
+                            <span id="lblStoredLocations">Stored Locations:</span>
+                            <label id="lblClearLocations">
+                                (REMOVE ALL)
+                            </label>
+                        </div>
+
+                    </form>
+                    <div id="ad">
+                    </div>
+                </div>
+                <div id="enableLocation">
+                    For one-click viewing, you should<br />
+                    <strong style='font-size: 14px; color: #449'>Enable Location</strong><br />
+                    (under <em>Settings</em>)<br />
+                    (You won't have to type  in a city any more!)
+                </div>
+            </div>
+        </div>-->
+        <!-- Cordova reference, this is added to your app when it's built. -->
+        <!--<script src="scripts/default.js"></script>
+        <script src="scripts/jquery-1.8.3.min.js"></script>
+        <script src="scripts/localization.js?id=1235"></script>
+        <script src="https://maps.googleapis.com/maps/api/js?sensor=false"></script>
+        <script src="scripts/platformOverrides.js"></script>
+        <script src="scripts/index.js"></script>-->
+        <script src="cordova.js"></script>
+    </body>
+</html>

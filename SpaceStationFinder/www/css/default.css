@@ -1,0 +1,384 @@
+﻿html {
+    height: 100%;
+}
+
+body {
+    height: 100%;
+    width: 100%;
+    font-size: 62.5%;
+    font-family: Verdana;
+    color: #ddd;
+    background-color: #002;
+    margin: 0px;
+    padding: 0px;
+}
+
+h4 {
+    margin: 0 0 0 0;
+    background-color: #555;
+    color: #fff;
+}
+
+#spaceStationFinderLogo {
+    position: absolute;
+    top: 5px;
+    left: 0px;
+    background-image: url("../images/SpaceStationFinderLogo.png");
+    height: 215px;
+    width: 223px;
+}
+
+#uhaapi {
+    position: absolute;
+    top: 220px;
+    left: 40px;
+}
+
+/* not enough room for UHAAPI credits, chicklets on small devices */
+@media screen and (max-width:420px) {
+    #chicklets, #uhaapi, #spaceStationFinderLogo, #restaurantFinderLogo {
+        display: none;
+    }
+}
+
+@media screen and (max-width:900px) {
+    #viewingDirectionInstructions {
+        display: none;
+    }
+}
+
+#tweetViewingInfo {
+    position: absolute;
+    right: 40px;
+    top: 130px;
+    z-index: 201;
+}
+
+#storedLocations {
+    margin: auto;
+    text-align: center;
+    margin-top: 30px;
+}
+
+.storedLocation {
+    color: #FFFF00;
+    font-size: 1.6em;
+    line-height: 2.0em;
+}
+
+    .storedLocation:hover {
+        cursor: pointer;
+    }
+
+    .storedLocation:active {
+        cursor: pointer;
+    }
+
+#specialMessage {
+    width: 200px;
+    color: Lime;
+    margin: auto;
+}
+
+
+#lblLocationNotSet {
+    width: 220px;
+    margin: auto;
+    padding:10px 0;
+}
+
+/********This whole section is the multi-column search layout for when the screen
+            is greater than 500px *********/
+/********Also stretch out Where on Earth text if we have room*********/
+@media screen and (min-width:600px) {
+
+    #specialMessage {
+        width: 350px;
+    }
+
+    #lblLocationNotSet {
+        width: 500px;
+        font-size: 1.5em;
+        font-weight: bold;
+        margin: auto;
+        padding: 15px 0px;
+    }
+
+   }
+
+/********End multi-column search layout for when the screen
+            is greater than 500px *********/
+
+/********Different logo image based on width*********/
+@media screen and (max-width:900px) {
+    #spaceStationFinderLogo {
+        position: absolute;
+        top: -32px;
+        left: 0px;
+        background-image: url("../images/SpaceStationFinderLogo100.png");
+        height: 96px;
+        width: 100px;
+    }
+
+
+    #uhaapi {
+        position: absolute;
+        width: 80px;
+        top: 110px;
+        left: 5px;
+    }
+}
+
+input[type="submit"] {
+    background-color: #0A0;
+    margin-bottom: 20px;
+    width: 200px;
+}
+
+
+#btnUsePhoneLatLon {
+    display: none;
+    background-color: #F60;
+    margin: 20px 0;
+}
+
+#btnUsePhoneLatLon:hover, #btnUsePhoneLatLon:active {    
+        background:#449;
+}
+
+#lblClearLocations {
+    color: #FF0;
+}
+
+    #lblClearLocations:hover {
+        color: #F00;
+        cursor: pointer;
+    }
+
+
+.time {
+    color: #DD0;
+    line-height: .9em;
+}
+
+#directionBar {
+    position: relative;
+}
+
+.directionSymbol {
+    float: left;
+    height: 23px;
+    width: 12.5%;
+    text-align: center;
+    line-height: 12px;
+    font-weight: bolder;
+    font-size: 1.2em;
+    color: #ff0;
+    background-color: #4d445c;
+    border-top: 1px solid #000;
+    border-bottom: 1px solid #999;
+}
+
+#redWhiteMapBorder {
+    width: 100%;
+    height: 4px;
+    background-image: url("../images/redWhiteMapBorder.gif");
+}
+
+.centeredDivContainer {
+    text-align: center;
+    position: relative;
+}
+
+
+#enterLocation {
+    position: relative;
+    top: 20px;
+    text-align: center;
+    width: 100%;
+}
+
+#directionBarStartDate {
+    color: #fff;
+    top: 2px;
+    font-size: .8em;
+}
+
+#startDate, #endDate {
+    color: #000;
+}
+
+#lblLocation {
+    color: #777;
+    font-size: .9em;
+}
+
+#txtAddress {
+    border-radius: 4px;
+    background-color: #fffbec;
+    display: block;
+    margin: auto;
+    width: 195px;
+    height: 24px;
+    text-align: center;
+}
+
+
+.message {
+    color: #aac;
+    width: 100%;
+    font-size: 1.2em;
+    margin-bottom: 10px;
+}
+
+#lblZip {
+    font-size: .9em;
+}
+
+#setLocation {
+    text-align: center;
+    position: absolute;
+    left:10px;
+    top:70px;
+    display: none;
+}
+
+#lblNewLocation {
+    font-size: .9em;
+    position: relative;
+    top: 64px;
+}
+
+#waitAnimContainer {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    padding-top: 150px;
+    opacity: 0.1;
+    margin: auto;
+    text-align: center;
+    z-index: -20;
+    color: #2F2;
+    font-weight: bold;
+}
+
+#backArrow {
+    position: relative;
+    z-index: 200;
+    margin-left:15px;
+    width: 41px;
+    height: 41px;
+    background-image: url("../images/backArrow.png");
+}
+
+    #backArrow:hover, active {
+        cursor: pointer;
+        background-image: url("../images/backArrowHover.png");
+    }
+    
+#searchButton {
+}
+
+    #searchButton:hover {
+        cursor: pointer;
+    }
+    
+#pageGrid {
+    position: relative;
+    background-image: url('../images/EarthWithGlow360.png');
+    background-repeat: no-repeat;
+    background-position: bottom center;
+    height: 100%;
+    background:#000;
+}
+
+/********Different bottom trees image based on width*********/
+@media screen and (min-width:480px) and (max-width:767px) {
+    #pageGrid {
+        position: relative;
+        background-image: url('../images/EarthWithGlow480.png');
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        height: 100%;
+    }
+
+}
+
+@media screen and (min-width:768px) and (max-width:1023px) {
+    #pageGrid {
+        position: relative;
+        background-image: url('../images/EarthWithGlow768.png');
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        height: 100%;
+    }
+
+}
+
+@media screen and (min-width:1024px) {
+    #pageGrid {
+        position: relative;
+        background-image: url('../images/EarthWithGlow1024.png');
+        background-repeat: no-repeat;
+        background-position: bottom center;
+        height: 100%;
+    }
+
+}
+
+/********End Different bottom trees image based on width*********/
+
+
+#friendlyMessage {
+    position: absolute;
+    top: 20px;
+}
+
+#ad {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.button {
+    margin-top: 5px;
+    margin-bottom: 15px;
+    font-size: 1.6em;
+    display: inline-block;
+    zoom: 1;
+    vertical-align: baseline;
+    outline: none;
+    cursor: pointer;
+    text-align: center;
+    text-decoration: none;
+    font: 14px Arial, Helvetica, sans-serif;
+    font-weight: bold;
+    padding: .5em 2em .55em;
+    text-shadow: 0 1px 1px rgba(0, 0, 0, .5);
+    -webkit-border-radius: .5em;
+    -moz-border-radius: .5em;
+    border-radius: .5em;
+    border:0;
+    color: #FFFFFF;
+}
+
+    .button:hover, active {
+        background:#449;
+    }
+
+.green {
+    background: #64991E;
+}
+
+#enableLocation {
+     display:none;
+     position:absolute;
+     bottom:10px;
+     left:10px;
+     background:#ff0;
+     color:#000;
+     width:260px;
+     padding:15px 5px;
+     text-align:center;
+}
+
