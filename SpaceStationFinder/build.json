@@ -1,0 +1,11 @@
+{
+     "android": {
+      "release": {
+        "keystore": "SpaceStationFinder.keystore",
+        "storePassword": "jjjjjj",
+        "alias": "SpaceStationFinder",
+        "password": "jjjjjj",
+        "keystoreType": ""
+      }
+     }
+ }

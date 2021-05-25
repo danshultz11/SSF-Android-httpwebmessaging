@@ -1,0 +1,23 @@
+{
+    "name": "SpaceStationFinder",
+    "version": "1.0.0",
+    "private": true,
+    "dependencies": {
+        "cordova-android": "^7.1.4",
+        "cordova-plugin-app-event": "~1.2.1",
+        "cordova-plugin-device": "~1.1.6",
+        "cordova-plugin-whitelist": "1.2.2",
+        "de.appplant.cordova.plugin.local-notification": "~0.8.4"
+    },
+    "cordova": {
+        "plugins": {
+            "cordova-plugin-whitelist": {},
+            "de.appplant.cordova.plugin.local-notification": {},
+            "cordova-plugin-app-event": {},
+            "cordova-plugin-device": {}
+        },
+        "platforms": [
+            "android"
+        ]
+    }
+}
