@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
-<widget android-versionCode="51" defaultlocale="en-US" id="com.SpaceStationFinder" version="41.2.1" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
+<widget android-versionCode="56" defaultlocale="en-US" id="com.SpaceStationFinder" version="42.1.0" xmlns="http://www.w3.org/ns/widgets" xmlns:cdv="http://cordova.apache.org/ns/1.0" xmlns:vs="http://schemas.microsoft.com/appx/2014/htmlapps">
   <name>SpaceStationFinder</name>
   <description>Space Station Finder will show you exactly when the International Space Station (ISS) will appear next based on your location.</description>
   <author email="dan@spacestationfinder.com" href="http://spacestationfinder.com">Dan Shultz</author>
@@ -101,7 +101,7 @@
   <preference name="InAppBrowserStorageEnabled" value="True" />
   <preference name="SuppressesIncrementalRendering" value="True" />
   <preference name="android-minSdkVersion" value="14" />
-  <preference name="android-targetSdkVersion" value="26" />
+  <preference name="android-targetSdkVersion" value="30" />
   <preference name="Fullscreen" value="True" />
   <preference name="auto-hide-splash-screen" value="false" />
   <access origin="http://maps.gstatic.com" />

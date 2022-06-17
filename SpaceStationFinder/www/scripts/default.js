@@ -58,7 +58,7 @@ function populateIFrame(qs) {
     //Testing remove:
 
     page = "resultsWithReminder.html";
-    var fullUrl = "http://spacestationfinder.com/" + page + qs;
+    var fullUrl = "https://spacestationfinder.com/" + page + qs;
     document.location = fullUrl + '&test=' + Math.random();
    
     

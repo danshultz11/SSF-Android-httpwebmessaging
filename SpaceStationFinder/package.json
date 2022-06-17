@@ -3,7 +3,6 @@
     "version": "1.0.0",
     "private": true,
     "dependencies": {
-        "cordova-android": "^7.1.4",
         "cordova-plugin-app-event": "~1.2.1",
         "cordova-plugin-device": "~1.1.6",
         "cordova-plugin-whitelist": "1.2.2",
@@ -14,10 +13,22 @@
             "cordova-plugin-whitelist": {},
             "de.appplant.cordova.plugin.local-notification": {},
             "cordova-plugin-app-event": {},
-            "cordova-plugin-device": {}
+            "cordova-plugin-device": {},
+            "cordova-plugin-local-notification": {},
+            "cordova-plugin-geolocation": {}
         },
         "platforms": [
-            "android"
+            "android",
+            "ios",
+            "windows"
         ]
+    },
+    "devDependencies": {
+        "cordova-android": "^7.1.4",
+        "cordova-plugin-badge": "^0.8.8",
+        "cordova-ios": "4.2.0",
+        "cordova-windows": "4.4.2",
+        "cordova-plugin-local-notification": "~0.9.0-beta.3",
+        "cordova-plugin-geolocation": "~2.4.3"
     }
 }
