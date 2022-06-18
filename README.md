@@ -19,10 +19,7 @@ C:\Windows\System32\WindowsPowerShell\v1.0
 In vscode terminal window at the root of the project, add the Android platform to cordova
 cordova platform add android
 
-When all set up, run 
-cordova build android
-at the root of the app in VSCode Terminal
-
+When all set up, run this 
 To sign and create a release apk:
 cordova build android --release -- --keystore=./SpaceStationFinder.keystore --storePassword=jjjjjj --password=jjjjjj --packageType=bundle
 and gets put in
@@ -33,3 +30,5 @@ Select "Production"
 then "Release dashboard" tab:
 https://play.google.com/console/u/1/developers/7874038105599688716/app/4975497713174280884/tracks/production?tab=releaseDashboard
 Click Create New Release button in upper right
+Upload apk
+Takes a day now to release, will show "in review"
